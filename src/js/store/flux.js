@@ -57,11 +57,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					body: JSON.stringify(contact)
 				}).then(response => response.json())
 					.then(data => {
-						const newContacts = contacts.map(contact => {
-							if (contact.id === data.id) {
+						const newContacts = contacts.map(contactItem => {
+							if (contactItem.id === contact.id) {
 								return data;
 							}
-							return contact;
+							return contactItem;
 						});
 						setStore({ contacts: newContacts });
 					})
